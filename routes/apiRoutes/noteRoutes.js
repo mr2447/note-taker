@@ -1,6 +1,7 @@
 //require express's router
 const router = require('express').Router();
 //require the functions for the routes
+const {showNotes} = require('../../lib/notes');
 //require the notes database 
 const { notes } = require('../../db/db.json');
 
@@ -8,8 +9,10 @@ const { notes } = require('../../db/db.json');
 router.get('/notes', (req, res) => {
     let results = notes;
     if (req.query) {
-        res.json(results);
+        res.json(results);  
     }
+    
 })
+
 
 module.exports = router
