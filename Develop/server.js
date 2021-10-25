@@ -10,7 +10,7 @@ const app = express();
 const fs = require('fs');
 const path = require('path');
 //require apiRoutes file
-const apiRoutes = require('./routes/apiRoutes');
+const apiRoutes = require('./routes/apiRoutes/noteRoutes');
 //require htmlRoutes
 //parse incoming string or array data from the url, tell server to expect
 app.use(express.urlencoded({extended: true}));
@@ -21,7 +21,7 @@ app.use(express.static('public'))
 //loof for matching url in the apiRoutes
 app.use('/api', apiRoutes)
 
-app.listen(PORTm, ()=> {
+app.listen(PORT, ()=> {
     console.log(`API server now on port ${PORT}!`)
 })
 
