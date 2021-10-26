@@ -3,7 +3,7 @@ const router = require('express').Router();
 //require the functions for the routes
 const {createNewNote} = require('../../lib/notes.js');
 //require the notes database 
-const { notes } = require('../../db/db.json');
+const notes = require('../../db/db.json');
 
 //get notes object from the database
 router.get('/notes', (req, res) => {
