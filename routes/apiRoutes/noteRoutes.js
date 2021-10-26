@@ -1,7 +1,7 @@
 //require express's router
 const router = require('express').Router();
 //require the functions for the routes
-const {showNotes} = require('../../lib/notes');
+const {createNewNote} = require('../../lib/notes.js');
 //require the notes database 
 const { notes } = require('../../db/db.json');
 
@@ -19,7 +19,12 @@ router.post('/notes', (req, res) => {
     console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
     if(req.body) {
         //add note to json file and notes array in this function
-        const 
+        const note = createNewNote(req.body, notes);
+        console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+        console.log("note", note)
+        //req.body is where out incoming content wil be
+
+        res.json(note)
     }
 })
 
