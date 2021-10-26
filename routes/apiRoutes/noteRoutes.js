@@ -32,7 +32,8 @@ router.post('/notes', (req, res) => {
 router.delete('/notes/:id', (req, res) => {
     notes.forEach(note => {
         if(note.id === req.params.id) {
-            let noteIndex = notes.indexOf(note.id);
+            let noteIndex = notes.indexOf(note);
+            
             notes.splice(noteIndex, 1);
             newNotesArray(notes);
             res.json(notes)
