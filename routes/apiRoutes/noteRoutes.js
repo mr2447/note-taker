@@ -1,7 +1,7 @@
 //require express's router
 const router = require('express').Router();
 //require the functions for the routes
-const {createNewNote} = require('../../lib/notes.js');
+const {createNewNote, newNotesArray} = require('../../lib/notes.js');
 //require the notes database 
 const notes = require('../../db/db.json');
 
@@ -29,14 +29,16 @@ router.post('/notes', (req, res) => {
     }
 })
 
-router.delete('api/notes/:id', (req, res) => {
+router.delete('/notes/:id', (req, res) => {
     notes.forEach(note => {
         if(note.id === req.params.id) {
-            note=""
-        }
-    })
-    res.json(notes)
-})
+            let noteIndex = notes.indexOf(note.id);
+            notes.splice(noteIndex, 1);
+            newNotesArray(notes);
+            res.json(notes)
+        };
+    });  
+});
 
 
 
