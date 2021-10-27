@@ -21,7 +21,7 @@
   Marvin https://github.com/mr2447/note-taker
   ## Tests
   jest 
-  ## Quesions?
+  ## Questions?
   Reach me on gitHub or by email. 
   GitHub: mr2447
   Email: marvin.ren@yahoo.com
